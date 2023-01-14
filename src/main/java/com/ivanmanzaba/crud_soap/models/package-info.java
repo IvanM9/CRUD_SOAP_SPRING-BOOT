@@ -1,0 +1,2 @@
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://ivanmanzaba.com/crud_soap/cliente", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package com.ivanmanzaba.crud_soap.models;

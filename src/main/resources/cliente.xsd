@@ -1,0 +1,79 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://ivanmanzaba.com/crud_soap/cliente"
+           targetNamespace="http://ivanmanzaba.com/crud_soap/cliente"
+           xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+           elementFormDefault="qualified">
+
+    <xs:element name="getClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:cliente"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="cliente">
+        <xs:sequence>
+            <xs:element name="codcliente" type="xs:int"/>
+            <xs:element name="dni" type="xs:string"/>
+            <xs:element name="direccion" type="xs:string"/>
+            <xs:element name="tipocliente" type="xs:string"/>
+            <xs:element name="ccaa" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="addClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:cliente" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="message" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="addClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+                <xs:element name="cliente" type="tns:cliente" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deletClientRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codCliente" type="xs:long" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="deleteClientResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getClientesRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getClientesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cliente" type="tns:cliente" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
