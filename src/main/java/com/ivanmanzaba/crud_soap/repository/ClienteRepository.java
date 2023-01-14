@@ -1,6 +1,6 @@
 package com.ivanmanzaba.crud_soap.repository;
 
-import com.ivanmanzaba.crud_soap.models.Cliente;
+import com.ivanmanzaba.crud_soap.cliente.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -35,7 +35,7 @@ public class ClienteRepository {
 
     public String insertClient(Cliente cliente) {
         String sqlQuery = "INSERT INTO cliente (codcliente, ci, nombre, direccion, tipocliente, ccaa) " +
-                "VALUES(" + cliente.getCodcliente() + ",'" + cliente.getCI() + "','" +
+                "VALUES(" + cliente.getCodcliente() + ",'" + cliente.getCi() + "','" +
                 cliente.getNombre() + "','" + cliente.getDireccion() + "','" + cliente.getTipocliente() +
                 "','" + cliente.getCcaa() + "')";
         int respuesta = jdbcTemplate.update(sqlQuery);
@@ -58,7 +58,7 @@ public class ClienteRepository {
         Cliente cliente = new Cliente();
         cliente.setCodcliente(resultSet.getInt("codcliente"));
         cliente.setNombre(resultSet.getString("nombre"));
-        cliente.setCI(resultSet.getString("ci"));
+        cliente.setCi(resultSet.getString("ci"));
         cliente.setDireccion(resultSet.getString("direccion"));
         cliente.setTipocliente(resultSet.getString("tipocliente"));
         cliente.setCcaa(resultSet.getString("ccaa"));

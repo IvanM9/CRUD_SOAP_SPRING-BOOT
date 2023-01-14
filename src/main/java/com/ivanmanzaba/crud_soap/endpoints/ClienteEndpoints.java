@@ -1,6 +1,6 @@
 package com.ivanmanzaba.crud_soap.endpoints;
 
-import com.ivanmanzaba.crud_soap.models.*;
+import com.ivanmanzaba.crud_soap.cliente.*;
 import com.ivanmanzaba.crud_soap.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -21,13 +21,13 @@ public class ClienteEndpoints {
         this.clienteRepository = clienteRepository1;
     }
 
-    /*@PayloadRoot(namespace = getClientes, localPart = "getClientRequest")
+    @PayloadRoot(namespace = getClientes, localPart = "getClientRequest")
     @ResponsePayload
     public GetClientResponse getClient(@RequestPayload GetClientRequest request) {
         GetClientResponse response = new GetClientResponse();
         response.setCliente(clienteRepository.findById(request.getId()));
         return response;
-    }*/
+    }
 
     @PayloadRoot(namespace = getClientes, localPart = "getClientesRequest")
     @ResponsePayload

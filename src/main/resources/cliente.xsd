@@ -22,7 +22,8 @@
     <xs:complexType name="cliente">
         <xs:sequence>
             <xs:element name="codcliente" type="xs:int"/>
-            <xs:element name="dni" type="xs:string"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="ci" type="xs:string"/>
             <xs:element name="direccion" type="xs:string"/>
             <xs:element name="tipocliente" type="xs:string"/>
             <xs:element name="ccaa" type="xs:string"/>
