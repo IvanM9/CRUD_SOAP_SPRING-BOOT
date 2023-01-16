@@ -38,5 +38,28 @@ public class ClienteEndpoints {
         return response;
     }
 
+    @PayloadRoot(namespace = getClientes, localPart = "addClientRequest")
+    @ResponsePayload
+    public AddClientResponse insertClient(@RequestPayload AddClientRequest request) {
+        AddClientResponse response = new AddClientResponse();
+        ServiceStatus status = new ServiceStatus();
+        status.setMessage(clienteRepository.insertClient(request.getCliente()));
+        status.setStatus("OK");
+        response.setServiceStatus(status);
+        response.setCliente(request.getCliente());
+        return response;
+    }
+
+    @PayloadRoot(namespace = getClientes, localPart = "deletClientRequest")
+    @ResponsePayload
+    public DeleteClientResponse deleteClient(@RequestPayload DeletClientRequest request) {
+        DeleteClientResponse response = new DeleteClientResponse();
+        ServiceStatus status = new ServiceStatus();
+        status.setMessage(clienteRepository.deleteClientByID((int) request.getCodCliente()));
+        status.setStatus("OK");
+        response.setServiceStatus(status);
+        return response;
+    }
+
 
 }
